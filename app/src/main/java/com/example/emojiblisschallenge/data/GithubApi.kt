@@ -23,4 +23,7 @@ interface GithubApi {
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
     ): List<GithubRepoResponse>
+
+    //Utilizei per_page depois de pesquisar os parâmetros utilizados para este endpoint
+    //e ter encontrado apenas o per_page em vez de o size indicado no challenge
 }
