@@ -1,0 +1,37 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "8d3f2033c69d4593faf142664bc13f01",
+    "entities": [
+      {
+        "tableName": "emojis",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`emojiName` TEXT NOT NULL, `emojiUrl` TEXT NOT NULL, PRIMARY KEY(`emojiName`))",
+        "fields": [
+          {
+            "fieldPath": "emojiName",
+            "columnName": "emojiName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "emojiUrl",
+            "columnName": "emojiUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "emojiName"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8d3f2033c69d4593faf142664bc13f01')"
+    ]
+  }
+}
